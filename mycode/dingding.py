@@ -89,5 +89,8 @@ class DingDingHandler:
             return
         if "总计用时" in text and text.startswith('dtxuexi://appclient/') == False:
             return
+        if "信息失效" in text and text.startswith('dtxuexi://appclient/') == False:
+            return
+        
         res = requests.post(self.get_url(), data=json.dumps(data), headers=headers)  # 发送post请求
         print(res.text)
